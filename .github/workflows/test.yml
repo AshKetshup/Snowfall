@@ -3,10 +3,10 @@ name: Build and Test
 on:
   push:
     branches:
-      - main
+      - TheMainTimeline
   pull_request:
     branches:
-      - main
+      - TheMainTimeline
 
 jobs:
   build:
