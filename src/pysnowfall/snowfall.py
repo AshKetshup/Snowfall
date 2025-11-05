@@ -1,7 +1,6 @@
 from datetime import datetime, timezone
 
-from helpers import generateTimestamp, waitUntilNextTimestamp
-
+from .helpers import generateTimestamp, waitUntilNextTimestamp
 from .snowfallConfig import SnowfallConfig
 
 
