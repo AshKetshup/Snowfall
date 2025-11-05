@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
-def getMask( bits: int ) -> int:
+
+def getMask(bits: int) -> int:
     """
     Returns a mask with the specified number of bits set to 1.
 
@@ -9,7 +10,7 @@ def getMask( bits: int ) -> int:
 
     Returns:
         int: value with the specified number of bits set to 1.
-    """    
+    """
     return (1 << bits) - 1
 
 
@@ -23,11 +24,14 @@ def generateTimestamp(dateTime: datetime = datetime.now(timezone.utc)) -> int:
     Returns:
         int: Value representing the timestamp for the specified date. In Milliseconds
 
-    """    
-    def secondsToMilliseconds(seconds: int) -> int:
+    """
+
+    def secondsToMilliseconds(seconds: int | float) -> int:
         return int(round(seconds * 1000))
 
-    unixEpoch: int = secondsToMilliseconds(datetime(1970, 1, 1, 0, 0, tzinfo=timezone.utc).timestamp())
+    unixEpoch: int = secondsToMilliseconds(
+        datetime(1970, 1, 1, 0, 0, tzinfo=timezone.utc).timestamp()
+    )
     currentTimestamp: int = secondsToMilliseconds(dateTime.timestamp())
     return currentTimestamp - unixEpoch
 
@@ -41,7 +45,7 @@ def waitUntilNextTimestamp(currentTimestamp: int) -> int:
 
     Returns:
         int: The next timestamp that is greater than the current timestamp.
-    """    
+    """
     nextTimestamp: int = generateTimestamp()
     while nextTimestamp <= currentTimestamp:
         nextTimestamp = generateTimestamp()
