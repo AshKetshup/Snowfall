@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="PySnowfall",
+    name="pysnowfall",
     version="1.0.0",
     author="AshKetshup",
     author_email="dsimoes2000@gmail.com",
