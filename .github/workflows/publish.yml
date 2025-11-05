@@ -6,7 +6,8 @@ on:
       - "v*.*.*"
 
 jobs:
-  build-and-publish:
+  publish:
+    environment: snowfall workflow
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,3 +35,6 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+        #env:
+        #  TWINE_USERNAME: ${{ github.actor }}
+        #  TWINE_PASSWORD: ${{ secrets.GH_PAT }}
