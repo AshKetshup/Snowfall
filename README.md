@@ -18,7 +18,7 @@ pip install PySnowfall
 The primary method for generating a new ID is `Snowfall.generateSnowflake()`. By default, it uses a global configuration.
 
 ```python
-from snowfall import Snowfall
+from pysnowfall import Snowfall
 
 # Generate a new unique ID
 new_id = Snowfall.generateSnowflake()
@@ -33,8 +33,7 @@ You can customize the generation by providing a custom `epoch` and `workerID`. T
 2.  Assign it to `Snowfall.Configuration`.
 
 ```python
-from snowfall import Snowfall
-from snowfallConfig import SnowfallConfig
+from pysnowfall import Snowfall, SnowfallConfig
 
 # Custom epoch (e.g., your project's launch time in milliseconds)
 # This example uses 2024-07-19 00:00:00 UTC
@@ -55,9 +54,7 @@ print(f"Generated ID with custom config: {new_id}")
 You can deconstruct a Snowflake ID into its constituent parts: timestamp, machine ID, and sequence number. The library provides helper functions for easy parsing.
 
 ```python
-from parsers import toSnowflake
-from snowfall import Snowfall
-from snowfallConfig import SnowfallConfig
+from pysnowfall import toSnowflake, Snowfall, SnowfallConfig
 
 # Assume this ID was generated with worker ID 0 and a custom epoch
 snowflake_id = "62937765418893312"
@@ -86,8 +83,7 @@ print(f"Sequence: {decoded_snowflake.Sequence}")
 If you need to parse a Snowflake using a configuration different from the global one, you can use `toSnowflakeCustom`.
 
 ```python
-from parsers import toSnowflakeCustom
-from snowfallConfig import SnowfallConfig
+from pysnowfall import toSnowflakeCustom, SnowfallConfig
 
 snowflake_id = "62937765418893312"
 custom_config = SnowfallConfig(epoch=1_721_347_200_000, workedID=0)
